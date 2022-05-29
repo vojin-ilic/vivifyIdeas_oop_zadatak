@@ -1,6 +1,4 @@
-import pygame
 import klase
-import sys
 import random
 
 
@@ -53,5 +51,7 @@ else:
     print("You have to choose your enemy, yet your choice is not valid.")
     print("You have to type dragon or spider.")
 
+#print hero backpack
+print("Your backpack is: " + str(hero.get_backpack()))
 klase.battle(hero, enemy)
     

@@ -1,5 +1,6 @@
 
 import random
+from turtle import position
 
 #random item picker from the ground
 def rand_item_from_ground():
@@ -12,12 +13,8 @@ def battle(hero, monster):
         random_number = random.randint(0,100)
         if random_number < 50:
             hero.pick_up_item(rand_item_from_ground())
-            #hand is empty
-            if hero.get_hand() == None:
-                print("You picked up an item: " + str(hero.get_hand()))
             #hand is not empty
-            else:
-                print("You picked up an item: " + str(hero.get_hand()) + " and your hand is now: " + str(hero.get_hand()))
+            print("You picked up an item: " + str(hero.get_hand()) + " and your hand is now: " + str(hero.get_hand()))
             hero.attack(monster)
             print("Hero attacks monster")
             print("Monster health: " + str(monster.get_health()))
@@ -90,7 +87,7 @@ class Hero:
             print("You can't hold more than one item in your hand")
 
     def attack(self, monster):
-        if self.hand == type(Sword):
+        if type(self.hand) == Sword:
             monster.set_health(monster.get_health() - 10)
             # log to file
             print("You hit the monster with your sword")
@@ -98,9 +95,8 @@ class Hero:
                 log.write("You hit the monster with your sword\n")
                 log.write("you dropped your sword\n")
             # drop wepon on the ground
-            ground.append(self.hand)
             self.remove_from_hand(self.hand)
-        elif self.hand == type(Spear):
+        elif type(self.hand) == "Spear":
             monster.set_health(monster.get_health() - 15)
             # log to file
             print("You hit the monster with your spear")
@@ -110,7 +106,7 @@ class Hero:
             # drop wepon on the ground
             ground.append(self.hand)
             self.remove_from_hand(self.hand)
-        elif self.hand == type(Spell):
+        elif type(self.hand) == "Spell":
             monster.set_health(monster.get_health() - 20)
             # log to file
             print("You hit the monster with your spell")
@@ -130,12 +126,17 @@ class Hero:
                 log.write("\n")
         if monster.get_health() <= 0:
             print("You killed the monster!")
-            log.write("You killed the monster!\n")
-            log.write("\n")
+            with open("log.txt", "a") as log:
+                log.write("You killed the monster!\n")
+                log.write("Monster health: " + str(monster.get_health()) + "\n")
+                log.write("Your health: " + str(self.get_health()) + "\n")
+                log.write("\n")
+                
 
     def remove_from_hand(self, item):
         self.hand = []
         ground.append(item)
+        item.set_position("on_ground")
 
     def heal(self, item):
         if item == type(Potion):
@@ -169,6 +170,10 @@ class Item:
     def __init__(self, position="on_ground"):
         self.position = position
         ground.append(self)
+    #set position of item
+    def set_position(self, position):
+        self.position = position    
+
 
 
 # wizard class
@@ -209,6 +214,9 @@ class Swordsman(Hero):
 class Potion(Item):
     def __init__(self, position="on_ground"):
         self.position = position
+    #string representation of potion
+    def __str__(self):
+        return "Potion"
 
 
 
@@ -216,19 +224,27 @@ class Potion(Item):
 class Sword(Item):
     def __init__(self, position="on_ground"):
         super().__init__(position)
+    #string representation of sword
+    def __str__(self):
+        return "Sword"
 
 
 # spell class
 class Spell(Item):
     def __init__(self, position="on_ground"):
         super().__init__(position)
+    #string representation of spell
+    def __str__(self):
+        return "Spell"
 
 
 # spear class
 class Spear(Item):
     def __init__(self, position="on_ground"):
         super().__init__(position)
-
+    #string representation of spear
+    def __str__(self):
+        return "Spear"
 
 # monster class
 class Monster:
@@ -267,6 +283,7 @@ class Spider(Monster):
             log.write("You are attacked by a spider\n")
             log.write("The spider uses " + randi + "\n")
             log.write("Your health: " + str(hero.get_health()) + "\n")
+            log.write("The spider health: " + str(self.get_health()) + "\n")
             log.write("\n")
 
 # dragon class

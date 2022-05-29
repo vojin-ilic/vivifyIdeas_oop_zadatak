@@ -1,0 +1,93 @@
+You are attacked by a spider
+The spider uses bite
+Your health: 92
+The spider health: 50
+
+You hit the monster with your sword
+you dropped your sword
+You are attacked by a spider
+The spider uses bite
+Your health: 84
+The spider health: 40
+
+You are attacked by a spider
+The spider uses hit
+Your health: 79
+The spider health: 40
+
+You are attacked by a spider
+The spider uses bite
+Your health: 71
+The spider health: 40
+
+You are attacked by a spider
+The spider uses hit
+Your health: 66
+The spider health: 40
+
+You are attacked by a spider
+The spider uses hit
+Your health: 61
+The spider health: 40
+
+You hit the monster with your sword
+you dropped your sword
+You can't hit the monster with your hand
+Monster health: 30
+Your health: 61
+
+You are attacked by a spider
+The spider uses bite
+Your health: 53
+The spider health: 30
+
+You are attacked by a spider
+The spider uses hit
+Your health: 48
+The spider health: 30
+
+You can't hit the monster with your hand
+Monster health: 30
+Your health: 48
+
+You are attacked by a spider
+The spider uses hit
+Your health: 43
+The spider health: 30
+
+You are attacked by a spider
+The spider uses bite
+Your health: 35
+The spider health: 30
+
+You are attacked by a spider
+The spider uses hit
+Your health: 30
+The spider health: 30
+
+You are attacked by a spider
+The spider uses hit
+Your health: 25
+The spider health: 30
+
+You hit the monster with your sword
+you dropped your sword
+You are attacked by a spider
+The spider uses hit
+Your health: 20
+The spider health: 20
+
+You hit the monster with your sword
+you dropped your sword
+You are attacked by a spider
+The spider uses hit
+Your health: 15
+The spider health: 10
+
+You hit the monster with your sword
+you dropped your sword
+You killed the monster!
+Monster health: 0
+Your health: 15
+
+You have killed the monster.
